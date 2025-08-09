@@ -1,5 +1,3 @@
-//! File management module
-
 pub mod manager;
 pub mod piece_manager;
 pub mod torrent_parser;

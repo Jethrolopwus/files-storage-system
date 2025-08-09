@@ -1,4 +1,4 @@
-//! Core types and error handling for the file storage system
+//=== Core types and error handling ===//
 
 pub mod error;
 pub mod types;

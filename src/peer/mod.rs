@@ -1,7 +1,5 @@
-//! Peer management module
-
-pub mod peer;
 pub mod manager;
+pub mod peer;
 
-pub use peer::*;
 pub use manager::*;
+pub use peer::*;
