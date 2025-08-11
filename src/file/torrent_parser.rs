@@ -6,7 +6,6 @@ use std::path::Path;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 struct RawTorrent {
     info: RawTorrentInfo,
-    //== Announce URL (tracker) ==//
     announce: Option<String>,
     #[serde(rename = "announce-list")]
     announce_list: Option<Vec<Vec<String>>>,
@@ -31,7 +30,6 @@ struct RawTorrentInfo {
     md5sum: Option<String>,
 }
 
-//=== Raw file info from torrent file ==//
 #[derive(Debug, Clone, Serialize, Deserialize)]
 struct RawFileInfo {
     length: u64,

@@ -6,10 +6,9 @@ use std::collections::HashMap;
 use tokio::fs::{File, OpenOptions};
 use tokio::io::{AsyncReadExt, AsyncSeekExt, AsyncWriteExt, SeekFrom};
 
-//== Manages file pieces for a torrent ==//
 #[derive(Debug)]
+//=== All pieces for the torrent ===//
 pub struct PieceManager {
-    //=== All pieces for the torrent ===//
     pieces: HashMap<PieceIndex, Piece>,
     bitfield: Bitfield,
     piece_length: u32,
@@ -19,7 +18,6 @@ pub struct PieceManager {
 }
 
 impl PieceManager {
-    //=== Create a new piece manager ===//
     pub fn new(piece_hashes: Vec<Hash>, piece_length: u32, cache_size: usize) -> Self {
         let num_pieces = piece_hashes.len();
         let mut pieces = HashMap::new();

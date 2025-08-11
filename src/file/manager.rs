@@ -4,7 +4,6 @@ use std::collections::HashMap;
 use std::path::{Path, PathBuf};
 use tokio::fs::create_dir_all;
 
-//== Manages files and their organization for a torrent ==//
 #[derive(Debug)]
 pub struct FileManager {
     torrent_info: TorrentInfo,
@@ -69,7 +68,6 @@ impl FileManager {
         for file_info in &self.torrent_info.files {
             let key = file_info.full_path().to_string_lossy().to_string();
             if let Some(file_path) = self.file_paths.get(&key) {
-                //== Create file with correct size ==//
                 let file = tokio::fs::OpenOptions::new()
                     .create(true)
                     .write(true)
@@ -135,7 +133,6 @@ impl FileManager {
         let key = file_info.full_path().to_string_lossy().to_string();
         self.file_paths.get(&key)
     }
-
     //== Get all file paths ==//
     pub fn file_paths(&self) -> &HashMap<String, PathBuf> {
         &self.file_paths
@@ -149,8 +146,6 @@ impl FileManager {
     pub fn total_size(&self) -> u64 {
         self.torrent_info.total_size()
     }
-
-    //== Get a downloaded size ==//
     pub fn downloaded_size(&self) -> u64 {
         let completed_pieces = self.piece_manager.completed_pieces();
         let mut total = 0u64;
