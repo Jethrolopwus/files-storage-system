@@ -1,0 +1,1 @@
+Cloned<Filter<std::collections::hash_map::Values<'_, std::net::SocketAddr, connection::ConnectionManager>, {closure@src/network/connection.rs:294:21: 294:27}>>

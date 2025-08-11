@@ -14,8 +14,8 @@ struct Cli {
 }
 
 #[derive(Subcommand)]
+//== Create a new torrent file ==//
 enum Commands {
-    //== Create a new torrent file ==//
     Create {
         #[arg(required = true)]
         files: Vec<PathBuf>,
